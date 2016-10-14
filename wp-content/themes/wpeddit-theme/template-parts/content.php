@@ -18,7 +18,7 @@
 
 
 		<footer class="entry-footer">
-			<div class='posted-on'><?php _e('submitted','wpeddit'); ?> <?php printf( _x( '%s ago', '%s = human-readable time difference', 'wpeddit' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?> <?php _e('by','wpeddit'); ?> <?php the_author_posts_link(); ?>   <?php _e('to','wpeddit');?> <?php echo get_the_category_list( ',', '', $post->ID ); ?></div>
+			<p class='posted-on'><?php _e('submitted','wpeddit'); ?> <?php printf( _x( '%s ago', '%s = human-readable time difference', 'wpeddit' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?> <?php _e('by','wpeddit'); ?> <?php the_author_posts_link(); ?>   <?php _e('to','wpeddit');?> <?php echo get_the_category_list( ',', '', $post->ID ); ?></p>
 			<div class='meta'>
 				<a href="<?php comments_link(); ?>"><?php comments_number( 'comment', 'one comment', '% comments' ); ?></a>
 				<a href="#" class='show-share' data-wpid="<?php echo $post->ID; ?>"><?php _e('share','wpeddit'); ?></a>
