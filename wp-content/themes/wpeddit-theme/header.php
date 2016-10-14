@@ -169,7 +169,7 @@ if ($terms) {
 		                    <?php wp_list_categories($args); ?> 
 		            </span>
 		            <span class="reddit-more">
-		                <li class = 'pull-right'><a href='<?php echo of_get_option('wpeddit_more_cat','#');?>'><b><?php _e('More','wpeddit');?> >></b></a></li>
+		                <li class = 'pull-right'><a href='<?php echo of_get_option('wpeddit_more_cat','#');?>'><b><?php _e('More','wpeddit');?> »</b></a></li>
 		            </span>
 		        </ul>
 		</div>	
