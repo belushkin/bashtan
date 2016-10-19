@@ -28,6 +28,7 @@ _deprecated_file(
 ?>
 
 <!-- You can start editing here. -->
+<?php comment_form(); ?>
 
 <?php if ( have_comments() ) : ?>
 	<h3 id="comments">
@@ -67,5 +68,3 @@ _deprecated_file(
 
 	<?php endif; ?>
 <?php endif; ?>
-
-<?php comment_form(); ?>

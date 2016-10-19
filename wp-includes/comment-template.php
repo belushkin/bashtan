@@ -1592,7 +1592,7 @@ function get_comment_reply_link( $args = array(), $comment = null, $post = null 
 		'respond_id'    => 'respond',
 		'reply_text'    => __( 'Reply' ),
 		'reply_to_text' => __( 'Reply to %s' ),
-		'login_text'    => __( 'Log in to Reply' ),
+		'login_text'    => false,
 		'depth'         => 0,
 		'before'        => '',
 		'after'         => ''
@@ -2206,15 +2206,7 @@ function comment_form( $args = array(), $post_id = null ) {
 		                              wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) )
 		                          ) . '</p>',
 		/** This filter is documented in wp-includes/link-template.php */
-		'logged_in_as'         => '<p class="logged-in-as">' . sprintf(
-		                              /* translators: 1: edit user link, 2: accessibility text, 3: user name, 4: logout URL */
-		                              __( '<a href="%1$s" aria-label="%2$s">Logged in as %3$s</a>. <a href="%4$s">Log out?</a>' ),
-		                              get_edit_user_link(),
-		                              /* translators: %s: user name */
-		                              esc_attr( sprintf( __( 'Logged in as %s. Edit your profile.' ), $user_identity ) ),
-		                              $user_identity,
-		                              wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) )
-		                          ) . '</p>',
+		'logged_in_as'         => '',
 		'comment_notes_before' => '<p class="comment-notes"><span id="email-notes">' . __( 'Your email address will not be published.' ) . '</span>'. ( $req ? $required_text : '' ) . '</p>',
 		'comment_notes_after'  => '',
 		'action'               => site_url( '/wp-comments-post.php' ),
