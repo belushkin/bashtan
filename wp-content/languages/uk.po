@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 4.6.x package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-09-26 14:31:53+0000\n"
+"PO-Revision-Date: 2016-10-18 10:43:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4051,17 +4051,17 @@ msgstr "JavaScript мусить бути увімкненим, щоби вико
 #. translators: localized date and time format, see https://secure.php.net/date
 #: wp-includes/class-wp-locale.php:395
 msgid "F j, Y g:i a"
-msgstr "F j, Y g:i a"
+msgstr "d.m.Y H:i"
 
 #. translators: localized time format, see https://secure.php.net/date
 #: wp-includes/class-wp-locale.php:393
 msgid "g:i a"
-msgstr "g:i a"
+msgstr "H:i"
 
 #. translators: localized date format, see https://secure.php.net/date
 #: wp-includes/class-wp-locale.php:391 wp-includes/media.php:3050
 msgid "F j, Y"
-msgstr "F j, Y"
+msgstr "d.m.Y"
 
 #: wp-includes/class-wp-xmlrpc-server.php:441
 msgid "The URL to the admin area"
@@ -8638,7 +8638,7 @@ msgstr "Відвідати сайт"
 
 #: wp-includes/class-wp-editor.php:1373
 msgid "Y/m/d"
-msgstr "Y/m/d"
+msgstr "d.m.Y"
 
 #: wp-includes/post.php:604 wp-includes/post.php:625
 msgid "Draft"

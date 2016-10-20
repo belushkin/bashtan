@@ -169,7 +169,7 @@ if ($terms) {
 		                    <?php wp_list_categories($args); ?> 
 		            </span>
 		            <span class="reddit-more">
-		                <li class = 'pull-right'><a href='<?php echo of_get_option('wpeddit_more_cat','#');?>'><b><?php _e('More','wpeddit');?> »</b></a></li>
+		                <li class = 'pull-right'><a href='<?php echo of_get_option('wpeddit_more_cat','#');?>'><b><?php _e('More','wpeddit');?> >></b></a></li>
 		            </span>
 		        </ul>
 		</div>	
@@ -177,7 +177,7 @@ if ($terms) {
 	<div id="header-bottom-left">
 		<a href="<?php echo home_url();?>"><img class='logo' src='<?php echo of_get_option('main_logo'); ?>'/></a>&nbsp;
 		<?php  if(!is_user_logged_in()) { ?>
-		<div id="header-bottom-right" class = 'pull-right screen-only'><span class="user">want to join? <a href="#myModal" data-toggle="modal" class="login-required">login or register</a> in seconds</span>
+		<div id="header-bottom-right" class = 'pull-right screen-only'><span class="user">Want to join? <a href="#myModal" data-toggle="modal" class="login-required">login or sign up</a> in seconds.</span>
 		<?php }else{  ?>
 		<div id="header-bottom-right" class = 'pull-right screen-only'><span class="user">Welcome <a href="<?php echo get_author_posts_url($current_user->ID);?>"><?php echo $current_user->display_name;?></a></span>
 			<span class="separator">|</span><a href="<?php echo wp_logout_url(); ?>" title="Logout">logout</a>	

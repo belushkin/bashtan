@@ -11,7 +11,7 @@ Theme My Login will always look in your theme's directory first, before using th
         <p class = 'red-login'>
             <input type="text" placeholder = "<?php _e( 'username', 'theme-my-login' ) ?>" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" />
         </p>
-        <p class = 'red-pword'>      
+        <p class = 'red-pword'>
             <input type="text" placeholder = "<?php _e( 'email', 'theme-my-login' ) ?>" name="user_email" id="user_email<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_email' ); ?>" size="20" />
         </p>
 <?php
