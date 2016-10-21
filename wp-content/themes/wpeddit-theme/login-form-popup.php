@@ -24,12 +24,13 @@ Theme My Login will always look in your theme's directory first, before using th
         do_action('login_form'); // Wordpress hook
         do_action_ref_array('tml_login_form', array(&$template)); // TML hook
         ?>
-        <p class="forgetmenot pull-left">
+        <div class="c-checkbox">
             <input name="rememberme" type="checkbox" id="rememberme<?php $template->the_instance(); ?>"
                    value="forever"/>
             <label for="rememberme<?php $template->the_instance(); ?>"
                    class="rememberme"><?php _e('Remember Me', 'theme-my-login'); ?></label>
-        </p>
+            <a href="/lostpassword" class="c-pull-right">reset password</a>
+        </div>
 
         <div class="c-clearfix c-submit-group">
             <input type="submit" name="wp-submit" id="wp-submit<?php $template->the_instance(); ?>" class="c-btn c-btn-primary c-pull-right"
@@ -39,7 +40,7 @@ Theme My Login will always look in your theme's directory first, before using th
             <input type="hidden" name="instance" value="<?php $template->the_instance(); ?>"/>
         </div>
     </form>
-    <?php $template->the_action_links(array('login' => false, 'register' => false)); ?>
+    <?php //$template->the_action_links(array('login' => false, 'register' => false)); ?>
 </div>
 
 <div style="clear:both"></div>
