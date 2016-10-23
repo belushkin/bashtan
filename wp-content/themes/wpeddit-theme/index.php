@@ -40,165 +40,169 @@ get_header(); ?>
 
 		echo '<div id="wpedditpaged" data-page="' . $paged .'" class="hide"></div>';
 		?>
-		<div id="wrapper" class="reddit-left">
-		<main id="main" class="site-main" role="main">
+        <table>
+            <tr>
+                <td>
+                    <div id="wrapper" class="reddit-left">
+                    <main id="main" class="site-main" role="main">
 
-		<?php
+                    <?php
 
-		$wpeddittab = 'hot';
-		if(isset($_GET['tab'])){
-			$wpeddittab = $_GET['tab'];
-		}
+                    $wpeddittab = 'hot';
+                    if(isset($_GET['tab'])){
+                        $wpeddittab = $_GET['tab'];
+                    }
 
-		if(isset($_GET['cat'])){
-			$cat = $_GET['cat'];
-		}
+                    if(isset($_GET['cat'])){
+                        $cat = $_GET['cat'];
+                    }
 
 
-		if(isset($_GET['wpedditpaged'])){
-			$paged = $_GET['wpedditpaged'];
-		}
+                    if(isset($_GET['wpedditpaged'])){
+                        $paged = $_GET['wpedditpaged'];
+                    }
 
-		//get the users subscriptions?
-		global $current_user;
-		$mysubs = get_user_meta($current_user->ID,'wpeddit_subs',true);
-		$mysubs_array = explode(',',$mysubs);
-		if($mysubs_array == ''){
-			$mysubs_array = 1;  //gives the 'Uncategorized' category by default (for those logged in)...
-		}
+                    //get the users subscriptions?
+                    global $current_user;
+                    $mysubs = get_user_meta($current_user->ID,'wpeddit_subs',true);
+                    $mysubs_array = explode(',',$mysubs);
+                    if($mysubs_array == ''){
+                        $mysubs_array = 1;  //gives the 'Uncategorized' category by default (for those logged in)...
+                    }
 
-		array_push($mysubs_array, 1);  //put this in the settings. Will make sure anything 'uncategorized' shows on home regardless
+                    array_push($mysubs_array, 1);  //put this in the settings. Will make sure anything 'uncategorized' shows on home regardless
 
-		if($wpeddittab == 'top'){
-			if(is_user_logged_in()){
-				$args = array(
-				    'meta_key'      => 'epicredvote',
-				    'orderby'     => 'meta_value_num',
-				    'order'    => 'DESC',
-				    'paged'		=> $paged,
-				    'cat'		=> $cat,
-				    'category__in' => $mysubs_array
-				);
-				query_posts( $args );
-			}else{
-				$args = array(
-				    'meta_key'      => 'epicredvote',
-				    'orderby'     => 'meta_value_num',
-				    'order'    => 'DESC',
-				    'paged'		=> $paged,
-				    'cat'		=> $cat
-				);
-				query_posts( $args );				
-			}
-		}elseif($wpeddittab == 'hot'){
-			if(is_user_logged_in()){
-				$args = array(
-				    'meta_key'      => 'epicredrank',
-				    'orderby'     => 'meta_value_num',
-				    'order'    => 'DESC',
-				    'paged'		=> $paged,
-				    'cat'		=> $cat,
-				   	'category__in' => $mysubs_array
-				);
-				query_posts( $args );
-			}else{
-				$args = array(
-				    'meta_key'      => 'epicredrank',
-				    'orderby'     => 'meta_value_num',
-				    'order'    => 'DESC',
-				    'paged'		=> $paged,
-				    'cat'		=> $cat
-				);
-				query_posts( $args );
-			}
-		}elseif($wpeddittab == 'new'){
-			if(is_user_logged_in()){
-				$args = array(
-				    'orderby'     => 'post_date',
-				    'order'    => 'DESC',
-				    'paged'		=> $paged,
-				    'cat'		=> $cat,
-				    'category__in' => $mysubs_array
-				);
-				query_posts( $args );		
-			}else{
-				$args = array(
-				    'orderby'     => 'post_date',
-				    'order'    => 'DESC',
-				    'paged'		=> $paged,
-				    'cat'		=> $cat
-				);
-				query_posts( $args );	
-			}
-		}elseif($wpeddittab == 'contro'){
-			if(is_user_logged_in()){
-				$args = array(
-				    'meta_key'      => 'wpeddit_contro',
-				    'orderby'     => 'meta_value_num',
-				    'order'    => 'DESC',
-				    'paged'		=> $paged,
-				    'cat'		=> $cat,
-				    'category__in' => $mysubs_array
-				);
-				query_posts( $args );
-			}else{
-				$args = array(
-				    'meta_key'      => 'wpeddit_contro',
-				    'orderby'     => 'meta_value_num',
-				    'order'    => 'DESC',
-				    'paged'		=> $paged,
-				    'cat'		=> $cat
-				);
-				query_posts( $args );				
-			}
-		}elseif($wpeddittab == 'rising'){
-			if(is_user_logged_in()){
-				$args = array(
-				    'meta_key'      => 'wpeddit_rising',
-				    'orderby'     => 'meta_value_num',
-				    'order'    => 'DESC',
-				    'paged'		=> $paged,
-				    'cat'		=> $cat,
-				    'category__in' => $mysubs_array
-				);
-				query_posts( $args );
-			}else{
-				$args = array(
-				    'meta_key'      => 'wpeddit_rising',
-				    'orderby'     => 'meta_value_num',
-				    'order'    => 'DESC',
-				    'paged'		=> $paged,
-				    'cat'		=> $cat
-				);
-				query_posts( $args );				
-			}
-		}
+                    if($wpeddittab == 'top'){
+                        if(is_user_logged_in()){
+                            $args = array(
+                                'meta_key'      => 'epicredvote',
+                                'orderby'     => 'meta_value_num',
+                                'order'    => 'DESC',
+                                'paged'		=> $paged,
+                                'cat'		=> $cat,
+                                'category__in' => $mysubs_array
+                            );
+                            query_posts( $args );
+                        }else{
+                            $args = array(
+                                'meta_key'      => 'epicredvote',
+                                'orderby'     => 'meta_value_num',
+                                'order'    => 'DESC',
+                                'paged'		=> $paged,
+                                'cat'		=> $cat
+                            );
+                            query_posts( $args );
+                        }
+                    }elseif($wpeddittab == 'hot'){
+                        if(is_user_logged_in()){
+                            $args = array(
+                                'meta_key'      => 'epicredrank',
+                                'orderby'     => 'meta_value_num',
+                                'order'    => 'DESC',
+                                'paged'		=> $paged,
+                                'cat'		=> $cat,
+                                'category__in' => $mysubs_array
+                            );
+                            query_posts( $args );
+                        }else{
+                            $args = array(
+                                'meta_key'      => 'epicredrank',
+                                'orderby'     => 'meta_value_num',
+                                'order'    => 'DESC',
+                                'paged'		=> $paged,
+                                'cat'		=> $cat
+                            );
+                            query_posts( $args );
+                        }
+                    }elseif($wpeddittab == 'new'){
+                        if(is_user_logged_in()){
+                            $args = array(
+                                'orderby'     => 'post_date',
+                                'order'    => 'DESC',
+                                'paged'		=> $paged,
+                                'cat'		=> $cat,
+                                'category__in' => $mysubs_array
+                            );
+                            query_posts( $args );
+                        }else{
+                            $args = array(
+                                'orderby'     => 'post_date',
+                                'order'    => 'DESC',
+                                'paged'		=> $paged,
+                                'cat'		=> $cat
+                            );
+                            query_posts( $args );
+                        }
+                    }elseif($wpeddittab == 'contro'){
+                        if(is_user_logged_in()){
+                            $args = array(
+                                'meta_key'      => 'wpeddit_contro',
+                                'orderby'     => 'meta_value_num',
+                                'order'    => 'DESC',
+                                'paged'		=> $paged,
+                                'cat'		=> $cat,
+                                'category__in' => $mysubs_array
+                            );
+                            query_posts( $args );
+                        }else{
+                            $args = array(
+                                'meta_key'      => 'wpeddit_contro',
+                                'orderby'     => 'meta_value_num',
+                                'order'    => 'DESC',
+                                'paged'		=> $paged,
+                                'cat'		=> $cat
+                            );
+                            query_posts( $args );
+                        }
+                    }elseif($wpeddittab == 'rising'){
+                        if(is_user_logged_in()){
+                            $args = array(
+                                'meta_key'      => 'wpeddit_rising',
+                                'orderby'     => 'meta_value_num',
+                                'order'    => 'DESC',
+                                'paged'		=> $paged,
+                                'cat'		=> $cat,
+                                'category__in' => $mysubs_array
+                            );
+                            query_posts( $args );
+                        }else{
+                            $args = array(
+                                'meta_key'      => 'wpeddit_rising',
+                                'orderby'     => 'meta_value_num',
+                                'order'    => 'DESC',
+                                'paged'		=> $paged,
+                                'cat'		=> $cat
+                            );
+                            query_posts( $args );
+                        }
+                    }
 
-		?>
+                    ?>
 
-		<?php if ( have_posts() ) : ?>
-			<?php
-			// Start the loop.
-			while ( have_posts() ) : the_post();
-				get_template_part( 'template-parts/content' );
-			endwhile;
+                    <?php if ( have_posts() ) : ?>
+                        <?php
+                        // Start the loop.
+                        while ( have_posts() ) : the_post();
+                            get_template_part( 'template-parts/content' );
+                        endwhile;
 
-			?>
-		</main><!-- .site-main -->
-		<div class='loading'>
-			<i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
-		</div>
-		<div class='navigation'>
-			<?php
-			// Previous/next page navigation.
-			the_posts_pagination( array(
-				'prev_text'          => __( '< previous', 'wpeddit' ),
-				'next_text'          => __( 'next >', 'wpeddit' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'wpeddit' ) . ' </span>',
-			) );
-			?>
-		</div>
-	</div>  <!-- end #wrapper -->
+                        ?>
+                    </main><!-- .site-main -->
+                    <div class='loading'>
+                        <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+                    </div>
+                    <div class='navigation'>
+                        <?php
+                        // Previous/next page navigation.
+                        the_posts_pagination( array(
+                            'prev_text'          => __( '< previous', 'wpeddit' ),
+                            'next_text'          => __( 'next >', 'wpeddit' ),
+                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'wpeddit' ) . ' </span>',
+                        ) );
+                        ?>
+                    </div>
+                </div>  <!-- end #wrapper -->
+            </td>
 		<?php
 		// If no content, include the "No posts found" template.
 		else :

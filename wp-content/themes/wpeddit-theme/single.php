@@ -24,15 +24,13 @@ get_header();
 		<div class='navigation-banner'>
 	
 				<ul class='post-order'>
-					<li><a href='#' class='active'>comments</a></li>				
+					<li><a href='#' class='active'>коментарі</a></li>
 				</ul>
 		
 		</div>
-
-			<header class="entry-header-author">
-			<h2 class="entry-title"><?php echo $username; ?></h2>
-			</header><!-- .entry-header -->
-
+        <table>
+            <tr>
+                <td>
 		<main id="main" class="site-main reddit-left" role="main">
 		<?php if ( have_posts() ) : ?>
 
@@ -58,6 +56,7 @@ get_header();
 		?>
 
 		</main><!-- .site-main -->
+        </td>
 		<?php get_sidebar(); ?>
 	</div><!-- .content-area -->
 <?php get_footer(); ?>

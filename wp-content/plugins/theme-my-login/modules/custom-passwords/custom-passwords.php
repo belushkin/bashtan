@@ -65,14 +65,16 @@ class Theme_My_Login_Custom_Passwords extends Theme_My_Login_Abstract {
 	public function password_fields() {
 		$template = Theme_My_Login::get_object()->get_active_instance();
 		?>
-		<p class="tml-user-pass1-wrap">
-			<label for="pass1<?php $template->the_instance(); ?>"><?php _e( 'Password', 'theme-my-login' ); ?></label>
-			<input autocomplete="off" name="pass1" id="pass1<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" />
-		</p>
-		<p class="tml-user-pass2-wrap">
-			<label for="pass2<?php $template->the_instance(); ?>"><?php _e( 'Confirm Password', 'theme-my-login' ); ?></label>
-			<input autocomplete="off" name="pass2" id="pass2<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" />
-		</p>
+		<div class="c-form-group">
+            <input autocomplete="off" name="pass1" placeholder="<?php _e( 'password', 'theme-my-login' ); ?>"
+                   id="pass1<?php $template->the_instance(); ?>"
+                   class="c-form-control input" size="20" value="<?php $template->the_posted_value('pass1'); ?>" type="password" />
+		</div>
+		<div class="c-form-group">
+			<input autocomplete="off" name="pass2" placeholder="<?php _e( 'confirm password', 'theme-my-login' ); ?>"
+                   id="pass2<?php $template->the_instance(); ?>"
+                   class="c-form-control input" size="20" value="<?php $template->the_posted_value('pass2'); ?>" type="password" />
+		</div>
 		<?php
 	}
 
