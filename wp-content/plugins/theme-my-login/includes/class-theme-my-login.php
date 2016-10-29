@@ -21,7 +21,7 @@ class Theme_My_Login extends Theme_My_Login_Abstract {
 	 * @since 6.3.2
 	 * @const string
 	 */
-	const VERSION = '6.4.5';
+	const VERSION = '6.4.6';
 
 	/**
 	 * Holds options key
@@ -66,7 +66,7 @@ class Theme_My_Login extends Theme_My_Login_Abstract {
 	 * @access public
 	 * @var int
 	 */
-	public $request_instance;
+	public $request_instance = 0;
 
 	/**
 	 * Holds loaded instances
@@ -251,7 +251,7 @@ class Theme_My_Login extends Theme_My_Login_Abstract {
 	 * @since 6.1.13
 	 * @access public
 	 */
-	public function pre_get_posts( &$query ) {
+	public function pre_get_posts( $query ) {
 
 		// Bail if not a search
 		if ( ! $query->is_search )
@@ -988,7 +988,7 @@ if(typeof wpOnload=='function')wpOnload()
 				return null;
 			wp_cache_add( $action, $page_id, 'tml_page_ids' );
 		}
-		return $page_id;
+		return apply_filters( 'tml_page_id', $page_id, $action );
 	}
 
 	/**
@@ -1077,11 +1077,11 @@ if(typeof wpOnload=='function')wpOnload()
 	 * @return object Instance object
 	 */
 	public function load_instance( $args = '' ) {
-		$args['instance'] = count( $this->loaded_instances );
 
 		$instance = new Theme_My_Login_Template( $args );
+		$instance->set_option( 'instance', count( $this->loaded_instances ) );
 
-		if ( $args['instance'] == $this->request_instance ) {
+		if ( $instance->get_option( 'instance' ) === $this->request_instance ) {
 			$instance->set_active();
 			$instance->set_option( 'default_action', $this->request_action );
 		}

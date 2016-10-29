@@ -115,17 +115,7 @@ class Theme_My_Login_Template extends Theme_My_Login_Abstract {
 							$template[] = $this->get_option( 'register_template' );
 						$template[] = 'register-form.php';
 						break;
-                    case 'register-popup':
-                        if ( $this->get_option( 'register_template' ) )
-                            $template[] = $this->get_option( 'register_template' );
-                        $template[] = 'register-form-popup.php';
-                        break;
-					case 'login-popup':
-                        if ( $this->get_option( 'login_template' ) )
-                            $template[] = $this->get_option( 'login_template' );
-                        $template[] = 'login-form-popup.php';
-                        break;
-                    case 'login':
+					case 'login':
 					default :
 						if ( $this->get_option( 'login_template' ) )
 							$template[] = $this->get_option( 'login_template' );
@@ -407,7 +397,7 @@ class Theme_My_Login_Template extends Theme_My_Login_Abstract {
 	public static function get_action_template_message( $action = '' ) {
 		switch ( $action ) {
 			case 'register':
-				$message = false;//__( 'Register For This Site', 'theme-my-login' );
+				$message = __( 'Register For This Site', 'theme-my-login' );
 				break;
 			case 'lostpassword':
 				$message = __( 'Please enter your username or email address. You will receive a link to create a new password via email.', 'theme-my-login' );
